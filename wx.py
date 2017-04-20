@@ -2,6 +2,7 @@
 import itchat
 from clipper import *
 import time
+import os.path
 @itchat.msg_register(itchat.content.PICTURE)
 def test(msg):
     print msg['ToUserName']
@@ -11,7 +12,7 @@ def test(msg):
         st = time.time()
 
         (pid,_) = msg['FileName'].split('.')
-        path = base_path+'/'+pid+'/'
+        path = base_path+os.path.sep+pid+os.path.sep
         if not(os.path.exists(path)):
             os.makedirs(path)
 
@@ -27,11 +28,11 @@ def test(msg):
 def _make_dirs(s,name):
 
     (pid,png) = s.split('.')
-    path = base_path+'/'+pid
+    path = base_path+os.path.sep+pid
     if not(os.path.exists(path)):
         os.makedirs(path)
 
-    return path +'/'+ name + '.'+png
+    return path +os.path.sep+ name + '.'+png
 
 itchat.auto_login(hotReload=True)
 itchat.run()
