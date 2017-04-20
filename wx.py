@@ -5,9 +5,8 @@ import time
 import os.path
 @itchat.msg_register(itchat.content.PICTURE)
 def test(msg):
-    print msg['ToUserName']
+    # print msg['ToUserName']
     if msg['ToUserName'] == 'filehelper':
-
 
         st = time.time()
 

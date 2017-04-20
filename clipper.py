@@ -79,9 +79,6 @@ def fromTemplate(tmp):
     getCapture(src(tmp))
     matching(src(tmp), tmp, res(tmp))
 
-
-
-
 def clean(s):
     os.remove(s)
     os.remove(src(s))
