@@ -3,9 +3,8 @@ import numpy as np
 from PIL import ImageGrab
 import os
 import csv
+
 base_path = 'data'
-
-
 
 def src_(s):
     return s+'src.png'
@@ -53,14 +52,14 @@ def matching(s):
             hmaaa = h
 
 
-    print "similar = ", maxVal
-    print "hmaaa = ", hmaaa
+    # print "similar = ", maxVal
+    # print "hmaaa = ", hmaaa
     colorful = cv2.imread(imgname)
     result = colorful[top_left[1]:bottom_right[1],
                       top_left[0]:bottom_right[0]]
     cv2.imwrite(resultname, result)
 
-    print top_left, bottom_right, hm, wm
+    # print top_left, bottom_right, hm, wm
     with open(s+'res.txt','w') as f:
         __little_helper(f,
             [1.*top_left[0]/wm,1.*top_left[1]/hm,1.*bottom_right[0]/wm,1.*bottom_right[1]/hm])
